@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Access Core — Official Software Keys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06080d;--bg2:#0d1117;--bg3:#141a24;--bg4:#1a2233;
+  --blue:#2563ff;--blue2:#4d85ff;--blue3:rgba(37,99,255,.12);
+  --text:#e6eaf4;--muted:#5a6a85;--light:#9aaabf;
+  --border:#1c2a3f;--card:#0e1520;
+  --google:#ea4335;--ms:#00a4ef;
+  --green:#10b981;--red:#ef4444;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;min-height:100vh;flex-direction:column}
+.page.active{display:flex}
+
+/* ── NAV ── */
+nav{background:rgba(6,8,13,.9);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;backdrop-filter:blur(16px)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.5px;cursor:pointer}
+.logo span:first-child{color:var(--text)}
+.logo span.accent{color:var(--blue)}
+.logo sup{font-size:.55rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px;vertical-align:super;margin-left:2px}
+.nav-mid{display:flex;gap:1.8rem}
+.nav-mid a{font-size:.82rem;color:var(--muted);text-decoration:none;letter-spacing:.3px;cursor:pointer;transition:color .2s}
+.nav-mid a:hover,.nav-mid a.active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.cart-pill{background:var(--bg3);border:1px solid var(--border);border-radius:100px;padding:.4rem .9rem;font-size:.78rem;color:var(--light);cursor:pointer;display:flex;align-items:center;gap:8px;transition:border-color .2s}
+.cart-pill:hover{border-color:var(--blue)}
+.cart-pill .badge{background:var(--blue);color:#fff;border-radius:100px;font-size:.65rem;padding:1px 7px;font-family:'DM Mono',monospace}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:.45rem 1.1rem;border-radius:8px;font-size:.8rem;font-weight:500;cursor:pointer;transition:opacity .2s;font-family:'DM Sans',sans-serif}
+.nav-cta:hover{opacity:.85}
+
+/* ── HERO ── */
+.hero{padding:5rem 2.5rem 3.5rem;max-width:1200px;margin:0 auto;width:100%;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--bg3);border-radius:100px;padding:.3rem .9rem .3rem .4rem;margin-bottom:2rem}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.hero-badge span{font-size:.72rem;color:var(--light);font-family:'DM Mono',monospace;letter-spacing:.5px}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.1;letter-spacing:-1.5px;margin-bottom:1.2rem;max-width:640px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--light);font-size:.95rem;line-height:1.8;max-width:480px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:.7rem 1.5rem;border-radius:9px;font-size:.88rem;font-weight:500;cursor:pointer;transition:opacity .2s,transform .15s;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--light);border:1px solid var(--border);padding:.7rem 1.5rem;border-radius:9px;font-size:.88rem;cursor:pointer;transition:border-color .2s,color .2s;font-family:'DM Sans',sans-serif}
+.btn-outline:hover{border-color:var(--blue);color:var(--text)}
+.trust-strip{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted)}
+.trust-icon{width:28px;height:28px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem}
+
+/* ── SECTIONS ── */
+.section{padding:2.5rem;max-width:1200px;margin:0 auto;width:100%}
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
+.section-label h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.5px;text-transform:uppercase}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.brand-tag{display:inline-flex;align-items:center;gap:6px;border-radius:6px;padding:.2rem .6rem;font-size:.7rem;font-family:'DM Mono',monospace;letter-spacing:.5px;font-weight:500}
+.brand-ms{background:rgba(0,164,239,.12);color:var(--ms);border:1px solid rgba(0,164,239,.2)}
+.brand-g{background:rgba(234,67,53,.1);color:var(--google);border:1px solid rgba(234,67,53,.2)}
+
+/* ── PRODUCT GRID ── */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.prod-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .2s;cursor:pointer;position:relative}
+.prod-card:hover{border-color:rgba(37,99,255,.5);transform:translateY(-3px)}
+.prod-card.featured{border-color:rgba(37,99,255,.3);background:linear-gradient(160deg,rgba(37,99,255,.06),var(--card))}
+.prod-top{padding:1.2rem 1.2rem .8rem;flex:1}
+.prod-logo-row{display:flex;align-items:center;gap:10px;margin-bottom:.9rem}
+.prod-logo{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:1px solid var(--border)}
+.prod-logo.ms{background:rgba(0,164,239,.1)}
+.prod-logo.goog{background:rgba(234,67,53,.08)}
+.prod-logo.win{background:rgba(0,164,239,.1)}
+.prod-logo.gen{background:var(--bg3)}
+.prod-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;margin-bottom:.25rem;line-height:1.3}
+.prod-desc{font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem}
+.prod-key-row{display:flex;align-items:center;gap:6px;background:var(--bg3);border-radius:7px;padding:.35rem .6rem;margin-bottom:.9rem}
+.prod-key-row span{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);flex:1;letter-spacing:.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prod-key-row em{font-style:normal;font-size:.65rem;background:var(--green);color:#000;border-radius:4px;padding:1px 5px;font-family:'DM Mono',monospace;flex-shrink:0}
+.prod-bottom{padding:.9rem 1.2rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.prod-price-wrap{display:flex;flex-direction:column}
+.prod-price{font-family:'DM Mono',monospace;font-size:1.05rem;color:var(--text);font-weight:500}
+.prod-old{font-size:.7rem;color:var(--muted);text-decoration:line-through;margin-bottom:1px}
+.add-btn{background:var(--blue3);color:var(--blue2);border:1px solid rgba(37,99,255,.3);border-radius:7px;padding:.38rem .85rem;font-size:.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:background .2s,color .2s}
+.add-btn:hover{background:var(--blue);color:#fff}
+.prod-badge{position:absolute;top:10px;right:10px;font-size:.6rem;font-family:'DM Mono',monospace;padding:.18rem .5rem;border-radius:5px;letter-spacing:.5px;font-weight:500}
+.badge-sale{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.badge-hot{background:rgba(37,99,255,.15);color:var(--blue2);border:1px solid rgba(37,99,255,.2)}
+.badge-new{background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.2)}
+
+/* ── FILTER BAR ── */
+.filter-bar{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap}
+.filter-input{flex:1;min-width:200px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:.55rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s}
+.filter-input:focus{border-color:var(--blue)}
+.filter-input::placeholder{color:var(--muted)}
+.filter-btn{background:var(--bg3);border:1px solid var(--border);color:var(--muted);border-radius:9px;padding:.52rem 1rem;font-size:.78rem;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif}
+.filter-btn:hover,.filter-btn.on{background:var(--blue3);color:var(--blue2);border-color:rgba(37,99,255,.3)}
+
+/* ── CART DRAWER ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}
+.overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:360px;background:var(--bg2);border-left:1px solid var(--border);z-index:201;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:1.3rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.drawer-head h3{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem}
+.drawer-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;width:30px;height:30px;border-radius:7px;transition:background .2s;display:flex;align-items:center;justify-content:center}
+.drawer-close:hover{background:var(--bg3);color:var(--text)}
+.drawer-body{flex:1;overflow-y:auto;padding:1.2rem 1.6rem}
+.drawer-empty{text-align:center;padding:4rem 0;color:var(--muted);font-size:.82rem;line-height:1.8}
+.cart-item{display:flex;gap:12px;padding:.85rem 0;border-bottom:1px solid var(--border)}
+.ci-ico{width:42px;height:42px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:.82rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-brand{font-size:.68rem;color:var(--muted);margin-top:2px;font-family:'DM Mono',monospace}
+.ci-price{font-family:'DM Mono',monospace;font-size:.88rem;color:var(--blue2);margin-top:4px}
+.ci-del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;flex-shrink:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:background .2s,color .2s}
+.ci-del:hover{background:rgba(239,68,68,.12);color:var(--red)}
+.drawer-foot{padding:1.3rem 1.6rem;border-top:1px solid var(--border)}
+.total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem}
+.total-row span{font-size:.8rem;color:var(--muted)}
+.total-row strong{font-family:'DM Mono',monospace;font-size:1.2rem;color:var(--text)}
+.total-sub{font-size:.72rem;color:var(--muted);margin-bottom:1.2rem}
+.checkout-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:.85rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.3px}
+.checkout-btn:hover{opacity:.88;transform:translateY(-1px)}
+.checkout-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* ── CHECKOUT PAGE ── */
+.checkout-wrap{max-width:960px;margin:0 auto;padding:3rem 2rem;width:100%;display:grid;grid-template-columns:1fr 340px;gap:2rem;align-items:start}
+@media(max-width:760px){.checkout-wrap{grid-template-columns:1fr}}
+.checkout-left h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:1.8rem}
+.checkout-steps{display:flex;gap:0;margin-bottom:2rem}
+.step{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--muted)}
+.step-num{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem}
+.step.done .step-num{background:var(--green);border-color:var(--green);color:#000}
+.step.active .step-num{background:var(--blue);border-color:var(--blue);color:#fff}
+.step.active{color:var(--text)}
+.step-line{flex:1;height:1px;background:var(--border);max-width:40px}
+.form-section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.2rem}
+.form-section h3{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;margin-bottom:1.2rem;color:var(--light);letter-spacing:.3px;text-transform:uppercase}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-row.full{grid-template-columns:1fr}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:.72rem;color:var(--muted);letter-spacing:.3px;font-family:'DM Mono',monospace}
+.form-group input,.form-group select{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-group select{cursor:pointer}
+.form-group input:focus,.form-group select:focus{border-color:var(--blue)}
+.form-group input.err,.form-group select.err{border-color:var(--red)}
+.form-group input::placeholder{color:var(--muted)}
+.err-msg{font-size:.68rem;color:var(--red);font-family:'DM Mono',monospace;display:none}
+.err-msg.show{display:block}
+/* card number formatting */
+.card-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+/* order summary */
+.order-summary{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:sticky;top:84px}
+.order-summary h3{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:.3px;color:var(--light)}
+.summary-item{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.8rem}
+.summary-item:last-of-type{border-bottom:none}
+.summary-item span:first-child{color:var(--muted);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.summary-item span:last-child{font-family:'DM Mono',monospace;color:var(--text)}
+.summary-divider{height:1px;background:var(--border);margin:.8rem 0}
+.summary-total-row{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0}
+.summary-total-row span{font-size:.78rem;color:var(--muted)}
+.summary-total-row strong{font-family:'DM Mono',monospace;font-size:1.1rem}
+.summary-tax{font-size:.72rem;color:var(--muted);margin-bottom:1.2rem;font-family:'DM Mono',monospace}
+.pay-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:.9rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:opacity .2s;letter-spacing:.3px;margin-bottom:.8rem}
+.pay-btn:hover{opacity:.88}
+.secure-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace}
+/* payment method tabs */
+.pay-tabs{display:flex;gap:8px;margin-bottom:1rem}
+.pay-tab{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:.5rem;text-align:center;cursor:pointer;font-size:.75rem;color:var(--muted);transition:all .2s;font-family:'DM Sans',sans-serif}
+.pay-tab.active{border-color:var(--blue);color:var(--blue2);background:var(--blue3)}
+/* card icon */
+.card-input-wrap{position:relative}
+.card-input-wrap input{width:100%;padding-right:3rem}
+.card-brand-icon{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none}
+
+/* ── CONFIRMATION PAGE ── */
+.confirm-wrap{max-width:560px;margin:0 auto;padding:5rem 2rem;text-align:center}
+.confirm-icon{width:80px;height:80px;border-radius:50%;background:rgba(16,185,129,.12);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.5rem}
+.confirm-wrap h1{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;margin-bottom:.8rem}
+.confirm-wrap p{color:var(--light);font-size:.88rem;line-height:1.8;margin-bottom:2rem}
+.confirm-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:2rem;text-align:left}
+.confirm-box h4{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+.confirm-key-item{display:flex;align-items:center;gap:10px;padding:.75rem 0;border-bottom:1px solid var(--border)}
+.confirm-key-item:last-child{border-bottom:none}
+.confirm-key-item .ico{font-size:1.3rem}
+.confirm-key-item .details{flex:1}
+.confirm-key-item .details strong{font-size:.82rem;display:block;margin-bottom:3px}
+.confirm-key-item .key-val{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--blue2);letter-spacing:1px}
+.confirm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--bg3);border:1px solid var(--border);color:var(--text);font-size:.78rem;padding:.6rem 1.2rem;border-radius:8px;opacity:0;transition:all .3s;z-index:400;pointer-events:none;white-space:nowrap;font-family:'DM Mono',monospace}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── MISC ── */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:3rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center}
+.stat-val{font-family:'DM Mono',monospace;font-size:1.3rem;color:var(--blue2);margin-bottom:.3rem}
+.stat-lbl{font-size:.72rem;color:var(--muted);letter-spacing:.5px}
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="logo" onclick="goTo('store')">
+    <span>Access</span><span class="accent">Core</span><sup>™</sup>
+  </div>
+  <div class="nav-mid">
+    <a onclick="goTo('store');filterCat('all')">Store</a>
+    <a onclick="goTo('store');filterCat('microsoft')">Microsoft</a>
+    <a onclick="goTo('store');filterCat('google')">Google</a>
+    <a onclick="goTo('store');filterCat('other')">Other</a>
+  </div>
+  <div class="nav-right">
+    <div class="cart-pill" onclick="openCart()">
+      🛒 Cart <span class="badge" id="cartBadge">0</span>
+    </div>
+    <button class="nav-cta" onclick="goTo('store')">Browse Keys</button>
+  </div>
+</nav>
+
+<!-- ═══════════════ STORE PAGE ═══════════════ -->
+<div class="page active" id="page-store">
+
+  <div class="hero">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span>OFFICIAL DIGITAL KEY RESELLER</span>
+    </div>
+    <h1>Your <em>Software Keys,</em><br/>Delivered Instantly.</h1>
+    <p>Genuine Microsoft and Google product keys. Activate in minutes. No waiting, no hassle — just pure access.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('shop-section').scrollIntoView({behavior:'smooth'})">Browse All Keys →</button>
+      <button class="btn-outline">How It Works</button>
+    </div>
+    <div class="trust-strip">
+      <div class="trust-item"><div class="trust-icon">⚡</div>Instant Delivery</div>
+      <div class="trust-item"><div class="trust-icon">✅</div>100% Genuine</div>
+      <div class="trust-item"><div class="trust-icon">🔒</div>Secure Checkout</div>
+      <div class="trust-item"><div class="trust-icon">💬</div>24/7 Support</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-val">95K+</div><div class="stat-lbl">KEYS SOLD</div></div>
+      <div class="stat-card"><div class="stat-val">99.9%</div><div class="stat-lbl">SUCCESS RATE</div></div>
+      <div class="stat-card"><div class="stat-val">&lt;60s</div><div class="stat-lbl">AVG DELIVERY</div></div>
+      <div class="stat-card"><div class="stat-val">4.9★</div><div class="stat-lbl">CUSTOMER RATING</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="shop-section">
+    <div class="filter-bar">
+      <input class="filter-input" type="text" placeholder="Search products…" id="searchBox" oninput="renderStore()"/>
+      <button class="filter-btn on" id="btn-all" onclick="filterCat('all')">All</button>
+      <button class="filter-btn" id="btn-microsoft" onclick="filterCat('microsoft')">🪟 Microsoft</button>
+      <button class="filter-btn" id="btn-google" onclick="filterCat('google')">🔵 Google</button>
+      <button class="filter-btn" id="btn-other" onclick="filterCat('other')">🔑 Other</button>
+    </div>
+
+    <!-- MICROSOFT BLOCK -->
+    <div id="ms-block">
+      <div class="section-label">
+        <span class="brand-tag brand-ms">🪟 Microsoft</span>
+        <h2>Microsoft Keys</h2>
+      </div>
+      <div class="prod-grid" id="msGrid"></div>
+    </div>
+
+    <br/>
+
+    <!-- GOOGLE BLOCK -->
+    <div id="goog-block">
+      <div class="section-label">
+        <span class="brand-tag brand-g">🔵 Google</span>
+        <h2>Google Keys</h2>
+      </div>
+      <div class="prod-grid" id="gGrid"></div>
+    </div>
+
+    <br/>
+
+    <!-- OTHER BLOCK -->
+    <div id="other-block">
+      <div class="section-label">
+        <h2>Other Keys</h2>
+      </div>
+      <div class="prod-grid" id="otherGrid"></div>
+    </div>
+  </div>
+</div><!-- /store -->
+
+<!-- ═══════════════ CHECKOUT PAGE ═══════════════ -->
+<div class="page" id="page-checkout">
+  <div class="checkout-wrap">
+    <div class="checkout-left">
+      <h2>Secure Checkout</h2>
+      <div class="checkout-steps">
+        <div class="step done"><div class="step-num">✓</div><span>Cart</span></div>
+        <div class="step-line"></div>
+        <div class="step active"><div class="step-num">2</div><span>Details</span></div>
+        <div class="step-line"></div>
+        <div class="step"><div class="step-num">3</div><span>Confirm</span></div>
+      </div>
+
+      <!-- Contact -->
+      <div class="form-section">
+        <h3>Contact & Delivery</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>FIRST NAME</label>
+            <input type="text" id="fname" placeholder="John"/>
+            <span class="err-msg" id="err-fname">Required</span>
+          </div>
+          <div class="form-group">
+            <label>LAST NAME</label>
+            <input type="text" id="lname" placeholder="Doe"/>
+            <span class="err-msg" id="err-lname">Required</span>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>EMAIL (KEY DELIVERY)</label>
+            <input type="email" id="email" placeholder="john@example.com"/>
+            <span class="err-msg" id="err-email">Enter a valid email</span>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>CONFIRM EMAIL</label>
+            <input type="email" id="email2" placeholder="john@example.com"/>
+            <span class="err-msg" id="err-email2">Emails must match</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="form-section">
+        <h3>Payment Method</h3>
+        <div class="pay-tabs">
+          <div class="pay-tab active" onclick="selectPayTab(this,'card')">💳 Credit / Debit</div>
+          <div class="pay-tab" onclick="selectPayTab(this,'paypal')">🅿️ PayPal</div>
+          <div class="pay-tab" onclick="selectPayTab(this,'crypto')">₿ Crypto</div>
+        </div>
+
+        <div id="card-fields">
+          <div class="form-row full" style="margin-bottom:12px">
+            <div class="form-group">
+              <label>CARDHOLDER NAME</label>
+              <input type="text" id="cname" placeholder="John Doe"/>
+              <span class="err-msg" id="err-cname">Required</span>
+            </div>
+          </div>
+          <div class="form-row full" style="margin-bottom:12px">
+            <div class="form-group">
+              <label>CARD NUMBER</label>
+              <div class="card-input-wrap">
+                <input type="text" id="cardnum" placeholder="0000 0000 0000 0000" maxlength="19" oninput="fmtCard(this)"/>
+                <span class="card-brand-icon" id="cardIcon">💳</span>
+              </div>
+              <span class="err-msg" id="err-cardnum">Enter a valid 16-digit card number</span>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="form-group">
+              <label>EXPIRY</label>
+              <input type="text" id="expiry" placeholder="MM / YY" maxlength="7" oninput="fmtExpiry(this)"/>
+              <span class="err-msg" id="err-expiry">Invalid date</span>
+            </div>
+            <div class="form-group">
+              <label>CVV</label>
+              <input type="text" id="cvv" placeholder="123" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')"/>
+              <span class="err-msg" id="err-cvv">Required</span>
+            </div>
+            <div class="form-group">
+              <label>BILLING ZIP</label>
+              <input type="text" id="zip" placeholder="00000" maxlength="10"/>
+            </div>
+          </div>
+        </div>
+
+        <div id="paypal-fields" style="display:none;text-align:center;padding:1.5rem 0;color:var(--muted);font-size:.82rem">
+          You'll be redirected to PayPal to complete your purchase securely.
+        </div>
+        <div id="crypto-fields" style="display:none;text-align:center;padding:1.5rem 0;color:var(--muted);font-size:.82rem">
+          Accepted: Bitcoin (BTC), Ethereum (ETH), USDC. Payment address will be generated at checkout.
+        </div>
+      </div>
+
+      <!-- Billing -->
+      <div class="form-section">
+        <h3>Billing Address</h3>
+        <div class="form-row full" style="margin-bottom:12px">
+          <div class="form-group">
+            <label>COUNTRY</label>
+            <select id="country">
+              <option>United States</option><option>United Kingdom</option><option>Canada</option>
+              <option>Australia</option><option>Germany</option><option>France</option>
+              <option>Nigeria</option><option>South Africa</option><option>India</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>CITY</label>
+            <input type="text" id="city" placeholder="New York"/>
+          </div>
+          <div class="form-group">
+            <label>STATE / REGION</label>
+            <input type="text" id="state" placeholder="NY"/>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /checkout-left -->
+
+    <!-- Order Summary sidebar -->
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-divider"></div>
+      <div class="summary-total-row"><span>Subtotal</span><strong id="summarySubtotal">$0.00</strong></div>
+      <div class="summary-total-row"><span>Tax (8%)</span><strong id="summaryTax">$0.00</strong></div>
+      <div class="summary-divider"></div>
+      <div class="summary-total-row"><span>Total</span><strong id="summaryTotal">$0.00</strong></div>
+      <div class="summary-tax" style="margin-top:.4rem">Keys delivered via email instantly after payment.</div>
+      <button class="pay-btn" onclick="submitPayment()" id="payBtn">🔒 Pay Now</button>
+      <div class="secure-note">🔒 256-bit SSL Encrypted Checkout</div>
+    </div>
+
+  </div>
+</div><!-- /checkout -->
+
+<!-- ═══════════════ CONFIRMATION PAGE ═══════════════ -->
+<div class="page" id="page-confirm">
+  <div class="confirm-wrap">
+    <div class="confirm-icon">✅</div>
+    <h1>Order Complete!</h1>
+    <p>Your keys have been sent to <strong id="confirmEmail">your email</strong>. Check your inbox (and spam folder just in case). Keys are ready to activate immediately.</p>
+    <div class="confirm-box">
+      <h4>Your Keys</h4>
+      <div id="confirmKeys"></div>
+    </div>
+    <div class="confirm-actions">
+      <button class="btn-primary" onclick="goTo('store')">← Back to Store</button>
+      <button class="btn-outline" onclick="window.print()">🖨️ Print Receipt</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CART DRAWER ═══════════════ -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Shopping Cart</h3>
+    <button class="drawer-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="drawer-empty">Your cart is empty.<br/>Add some keys to get started! 🔑</div>
+  </div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none">
+    <div class="total-row"><span>Total</span><strong id="drawerTotal">$0.00</strong></div>
+    <div class="total-sub">Tax calculated at checkout</div>
+    <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════ SCRIPT ═══════════════ -->
+<script>
+// ── DATA ──
+const products = [
+  // MICROSOFT
+  {id:1, brand:'microsoft', name:'Windows 11 Pro', desc:'Full activation key for Windows 11 Professional. Lifetime license.', icon:'🪟', logo:'win', price:79.99, old:199.99, badge:'hot', key:'WIN11-PRO-####-XXXX'},
+  {id:2, brand:'microsoft', name:'Windows 11 Home', desc:'Windows 11 Home edition. Digital key, instant activation.', icon:'🪟', logo:'win', price:49.99, old:119.99, badge:'sale', key:'WIN11-HOM-####-XXXX'},
+  {id:3, brand:'microsoft', name:'Microsoft Office 2024 Pro', desc:'Full Office suite: Word, Excel, PowerPoint, Outlook and more.', icon:'📄', logo:'ms', price:129.99, old:249.99, badge:'hot', key:'OFF24-PRO-####-XXXX'},
+  {id:4, brand:'microsoft', name:'Microsoft Office 2021 Home', desc:'Home & Student edition. One-time purchase, no subscription.', icon:'📝', logo:'ms', price:74.99, old:149.99, badge:'sale', key:'OFF21-HOM-####-XXXX'},
+  {id:5, brand:'microsoft', name:'Microsoft 365 Personal (1yr)', desc:'Cloud-connected Office apps plus 1TB OneDrive storage.', icon:'☁️', logo:'ms', price:59.99, old:99.99, badge:'new', key:'M365-PER-####-XXXX'},
+  {id:6, brand:'microsoft', name:'Microsoft 365 Family (1yr)', desc:'Up to 6 users. Full Office + 1TB each. Best value.', icon:'👨‍👩‍👧', logo:'ms', price:89.99, old:149.99, badge:'hot', key:'M365-FAM-####-XXXX'},
+  {id:7, brand:'microsoft', name:'Visual Studio Pro 2022', desc:'Professional IDE for .NET, C++, Python, and web development.', icon:'⚙️', logo:'ms', price:99.99, old:199.99, badge:null, key:'VS22-PRO-####-XXXX'},
+  {id:8, brand:'microsoft', name:'Windows Server 2022 Std', desc:'Standard edition license for 2-VM server workloads.', icon:'🖥️', logo:'win', price:349.99, old:599.99, badge:null, key:'WS22-STD-####-XXXX'},
+  {id:9, brand:'microsoft', name:'Project Professional 2021', desc:'Powerful project management tools for complex portfolios.', icon:'📊', logo:'ms', price:149.99, old:299.99, badge:'sale', key:'PROJ-PRO-####-XXXX'},
+
+  // GOOGLE
+  {id:10, brand:'google', name:'Google One (2TB, 1yr)', desc:'2TB cloud storage shared across Google Drive, Gmail & Photos.', icon:'🔵', logo:'goog', price:29.99, old:49.99, badge:'hot', key:'G1-2TB-####-XXXX'},
+  {id:11, brand:'google', name:'Google One (5TB, 1yr)', desc:'5TB for heavy users. Shareable with family up to 5 members.', icon:'🔵', logo:'goog', price:69.99, old:99.99, badge:null, key:'G1-5TB-####-XXXX'},
+  {id:12, brand:'google', name:'YouTube Premium (1yr)', desc:'Ad-free YouTube, background play & YouTube Music included.', icon:'▶️', logo:'goog', price:79.99, old:139.99, badge:'sale', key:'YTP-1YR-####-XXXX'},
+  {id:13, brand:'google', name:'Google Workspace Business Starter', desc:'Custom email, Meet, Drive, and Docs for your business.', icon:'📧', logo:'goog', price:49.99, old:72.00, badge:'new', key:'GWS-BST-####-XXXX'},
+  {id:14, brand:'google', name:'Google Workspace Business Std', desc:'Enhanced video meetings (500 participants) + 2TB storage per user.', icon:'🏢', logo:'goog', price:89.99, old:144.00, badge:null, key:'GWS-BSS-####-XXXX'},
+  {id:15, brand:'google', name:'Gemini Advanced (1yr)', desc:'Access Google\'s most capable AI model powered by Gemini Ultra.', icon:'✨', logo:'goog', price:129.99, old:239.88, badge:'new', key:'GEM-ADV-####-XXXX'},
+
+  // OTHER
+  {id:16, brand:'other', name:'Norton 360 Deluxe (1yr)', desc:'5-device antivirus, VPN, dark web monitoring and more.', icon:'🛡️', logo:'gen', price:24.99, old:49.99, badge:'sale', key:'NRT-360-####-XXXX'},
+  {id:17, brand:'other', name:'Malwarebytes Premium (1yr)', desc:'Real-time malware, ransomware & spyware protection.', icon:'🔐', logo:'gen', price:19.99, old:39.99, badge:null, key:'MWB-PRE-####-XXXX'},
+  {id:18, brand:'other', name:'Adobe Photoshop (1yr)', desc:'Industry-leading photo editing and compositing software.', icon:'🎨', logo:'gen', price:119.99, old:239.99, badge:null, key:'APS-1YR-####-XXXX'},
+  {id:19, brand:'other', name:'AutoCAD LT 2025 (1yr)', desc:'Professional 2D drafting and drawing tools for designers.', icon:'📐', logo:'gen', price:199.99, old:449.99, badge:'hot', key:'ACD-LT-####-XXXX'},
+  {id:20, brand:'other', name:'Spotify Premium (1yr)', desc:'Ad-free music, offline listening, unlimited skips.', icon:'🎵', logo:'gen', price:49.99, old:95.88, badge:'sale', key:'SPO-1YR-####-XXXX'},
+];
+
+let cart = [];
+let currentCat = 'all';
+
+// ── NAVIGATION ──
+function goTo(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── STORE RENDER ──
+function filterCat(cat) {
+  currentCat = cat;
+  ['all','microsoft','google','other'].forEach(c => {
+    const b = document.getElementById('btn-' + c);
+    if (b) b.classList.toggle('on', c === cat);
+  });
+  renderStore();
+}
+
+function renderStore() {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  const show = cat => currentCat === 'all' || currentCat === cat;
+  const filtered = brand => products.filter(p => p.brand === brand && (!q || p.name.toLowerCase().includes(q)));
+
+  const ms = filtered('microsoft');
+  const goog = filtered('google');
+  const other = filtered('other');
+
+  document.getElementById('ms-block').style.display = show('microsoft') && ms.length ? '' : 'none';
+  document.getElementById('goog-block').style.display = show('google') && goog.length ? '' : 'none';
+  document.getElementById('other-block').style.display = show('other') && other.length ? '' : 'none';
+
+  document.getElementById('msGrid').innerHTML = ms.map(cardHTML).join('');
+  document.getElementById('gGrid').innerHTML = goog.map(cardHTML).join('');
+  document.getElementById('otherGrid').innerHTML = other.map(cardHTML).join('');
+}
+
+function cardHTML(p) {
+  const discount = p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
+  return `
+  <div class="prod-card${p.badge === 'hot' ? ' featured' : ''}">
+    ${p.badge ? `<div class="prod-badge badge-${p.badge}">${p.badge.toUpperCase()}</div>` : ''}
+    <div class="prod-top">
+      <div class="prod-logo-row">
+        <div class="prod-logo ${p.logo}">${p.icon}</div>
+        ${p.brand === 'microsoft' ? '<span class="brand-tag brand-ms" style="font-size:.6rem">Microsoft</span>' : ''}
+        ${p.brand === 'google' ? '<span class="brand-tag brand-g" style="font-size:.6rem">Google</span>' : ''}
+      </div>
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-desc">${p.desc}</div>
+      <div class="prod-key-row">
+        <span>${p.key}</span>
+        <em>GENUINE</em>
+      </div>
+    </div>
+    <div class="prod-bottom">
+      <div class="prod-price-wrap">
+        ${p.old ? `<div class="prod-old">$${p.old.toFixed(2)}</div>` : ''}
+        <div class="prod-price">$${p.price.toFixed(2)} ${discount ? `<span style="font-size:.65rem;color:#34d399;font-family:'DM Mono',monospace">-${discount}%</span>` : ''}</div>
+      </div>
+      <button class="add-btn" onclick="addToCart(${p.id})">+ Add to Cart</button>
+    </div>
+  </div>`;
+}
+
+// ── CART ──
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  const ex = cart.find(x => x.id === id);
+  if (ex) { ex.qty = (ex.qty || 1) + 1; }
+  else { cart.push({...p, qty: 1}); }
+  updateCartUI();
+  toast(`${p.name} added to cart ✓`);
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(x => x.id !== id);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const count = cart.reduce((a, c) => a + (c.qty || 1), 0);
+  document.getElementById('cartBadge').textContent = count;
+  const subtotal = cart.reduce((a, c) => a + c.price * (c.qty || 1), 0);
+
+  if (!cart.length) {
+    document.getElementById('drawerBody').innerHTML = '<div class="drawer-empty">Your cart is empty.<br/>Add some keys to get started! 🔑</div>';
+    document.getElementById('drawerFoot').style.display = 'none';
+  } else {
+    document.getElementById('drawerBody').innerHTML = cart.map(c => `
+      <div class="cart-item">
+        <div class="ci-ico">${c.icon}</div>
+        <div class="ci-info">
+          <div class="ci-name">${c.name}${c.qty > 1 ? ' × ' + c.qty : ''}</div>
+          <div class="ci-brand">${c.brand.charAt(0).toUpperCase() + c.brand.slice(1)}</div>
+          <div class="ci-price">$${(c.price * (c.qty || 1)).toFixed(2)}</div>
+        </div>
+        <button class="ci-del" onclick="removeFromCart(${c.id})">✕</button>
+      </div>`).join('');
+    document.getElementById('drawerTotal').textContent = '$' + subtotal.toFixed(2);
+    document.getElementById('drawerFoot').style.display = 'block';
+  }
+
+  // Update summary
+  const tax = subtotal * 0.08;
+  const total = subtotal + tax;
+  document.getElementById('summarySubtotal').textContent = '$' + subtotal.toFixed(2);
+  document.getElementById('summaryTax').textContent = '$' + tax.toFixed(2);
+  document.getElementById('summaryTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('summaryItems').innerHTML = cart.map(c =>
+    `<div class="summary-item"><span>${c.name}${c.qty > 1 ? ' × ' + c.qty : ''}</span><span>$${(c.price * (c.qty || 1)).toFixed(2)}</span></div>`
+  ).join('');
+}
+
+function openCart() { document.getElementById('overlay').classList.add('open'); document.getElementById('drawer').classList.add('open'); }
+function closeCart() { document.getElementById('overlay').classList.remove('open'); document.getElementById('drawer').classList.remove('open'); }
+
+function goToCheckout() {
+  if (!cart.length) { toast('Your cart is empty!'); return; }
+  closeCart();
+  goTo('checkout');
+}
+
+// ── PAYMENT TABS ──
+function selectPayTab(el, type) {
+  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('card-fields').style.display = type === 'card' ? '' : 'none';
+  document.getElementById('paypal-fields').style.display = type === 'paypal' ? '' : 'none';
+  document.getElementById('crypto-fields').style.display = type === 'crypto' ? '' : 'none';
+}
+
+// ── CARD FORMATTING ──
+function fmtCard(inp) {
+  let v = inp.value.replace(/\D/g, '').substring(0, 16);
+  inp.value = v.replace(/(.{4})/g, '$1 ').trim();
+  const icon = document.getElementById('cardIcon');
+  if (v.startsWith('4')) icon.textContent = '💳'; // Visa
+  else if (v.startsWith('5')) icon.textContent = '🔴'; // MC
+  else if (v.startsWith('34') || v.startsWith('37')) icon.textContent = '🟩'; // Amex
+  else icon.textContent = '💳';
+}
+
+function fmtExpiry(inp) {
+  let v = inp.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0, 2) + ' / ' + v.substring(2);
+  inp.value = v;
+}
+
+// ── VALIDATION & SUBMIT ──
+function validate() {
+  let ok = true;
+  const req = (id, errId, check) => {
+    const el = document.getElementById(id);
+    const err = document.getElementById(errId);
+    const bad = !check(el.value);
+    el.classList.toggle('err', bad);
+    if (err) err.classList.toggle('show', bad);
+    if (bad) ok = false;
+  };
+  req('fname','err-fname', v => v.trim().length > 0);
+  req('lname','err-lname', v => v.trim().length > 0);
+  req('email','err-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+  req('email2','err-email2', v => v === document.getElementById('email').value);
+
+  const tabs = document.querySelectorAll('.pay-tab');
+  let activeType = 'card';
+  tabs.forEach(t => { if (t.classList.contains('active')) activeType = t.dataset.type || 'card'; });
+
+  if (document.getElementById('card-fields').style.display !== 'none') {
+    req('cname','err-cname', v => v.trim().length > 0);
+    req('cardnum','err-cardnum', v => v.replace(/\s/g,'').length === 16);
+    req('expiry','err-expiry', v => /^\d{2} \/ \d{2}$/.test(v));
+    req('cvv','err-cvv', v => v.length >= 3);
+  }
+  return ok;
+}
+
+function submitPayment() {
+  if (!validate()) { toast('Please fix the errors above'); return; }
+  const btn = document.getElementById('payBtn');
+  btn.innerHTML = '<span class="spinner"></span> Processing…';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = '🔒 Pay Now';
+    btn.disabled = false;
+    showConfirmation();
+  }, 2200);
+}
+
+function showConfirmation() {
+  const email = document.getElementById('email').value;
+  document.getElementById('confirmEmail').textContent = email;
+
+  // Generate fake-but-realistic looking keys
+  function genKey(template) {
+    return template.replace(/####/g, () => Math.random().toString(36).toUpperCase().substring(2,6));
+  }
+
+  document.getElementById('confirmKeys').innerHTML = cart.map(c => `
+    <div class="confirm-key-item">
+      <div class="ico">${c.icon}</div>
+      <div class="details">
+        <strong>${c.name}</strong>
+        <div class="key-val">${genKey(c.key).replace(/XXXX/g, Math.random().toString(36).toUpperCase().substring(2,6))}</div>
+      </div>
+    </div>`).join('');
+
+  cart = [];
+  updateCartUI();
+  goTo('confirm');
+}
+
+// ── TOAST ──
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastT);
+  window._toastT = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── INIT ──
+renderStore();
+</script>
+</body>
+</html>
